@@ -1,19 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"/>
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1"
+    />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>IAM Greenfield</title>
     <!-- add style -->
-    <link rel="stylesheet" href="css/css.css"/>
+    <link rel="stylesheet" href="css/css.css" />
     <!-- add interaction control -->
     <script type="application/javascript" src="js/jsl.js"></script>
     <script type="application/javascript" src="js/jsr.js"></script>
     <!-- add the "library" script wrapping XMLHttpRequest -->
     <script type="application/javascript" src="js/lib/xhr.js"></script>
-</head>
-<body>
-</body>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="has-box-shadow has-padding">
+      <button class="btn menu" aria-label="show menu"></button>
+      <h1 class="heading">Medien</h1>
+      <button class="btn tile" aria-label="show tile view"></button>
+      <button class="btn plus" aria-label="add item to playlist"></button>
+    </header>
+
+    <!-- Main -->
+    <main>
+      <ul>
+        <li class="grid">
+          <img
+            src="https://placekitten.com/200/150"
+            alt="Cover Image"
+            title="placekitten.com"
+            class="thumbnail"
+          />
+          <p class="owner">Lorem ipsum</p>
+          <time datetime="2022-10-15" class="added">15.10.2022</time>
+          <h2 class="title">M1</h2>
+          <div class="tags">9</div>
+          <button class="btn options" aria-label="options"></button>
+        </li>
+
+        <li class="grid">
+          <img
+            src="https://placekitten.com/200/150"
+            alt="Cover Image"
+            title="placekitten.com"
+            class="thumbnail"
+          />
+          <p class="owner">Lorem ipsum</p>
+          <time datetime="2022-10-15" class="added">15.10.2022</time>
+          <h2 class="title">M1</h2>
+          <div class="tags">0</div>
+          <button class="btn options" aria-label="options"></button>
+        </li>
+
+        <li class="grid">
+          <img
+            src="https://placekitten.com/200/150"
+            alt="Cover Image"
+            title="placekitten.com"
+            class="thumbnail"
+          />
+          <p class="owner">Lorem ipsum</p>
+          <time datetime="2022-10-15" class="added">15.10.2022</time>
+          <h2 class="title">M1</h2>
+          <div class="tags">2</div>
+          <button class="btn options" aria-label="options"></button>
+        </li>
+      </ul>
+    </main>
+
+    <!-- Footer -->
+    <footer class="has-padding">
+      <button class="btn logout" aria-label="Logout"></button>
+      <button class="btn refresh" aria-label="Refresh"></button>
+    </footer>
+  </body>
 </html>
