@@ -11,6 +11,8 @@
   --base-font-size: 16px;
   --base-spacing: var(--base-font-size);
   --line-height: 1.4;
+  --tag-size-width: calc(var(--base-font-size) * 0.75);
+  --tag-size-height: calc(var(--tag-size-width) * 1.125);
 }
 
 /* block text selection */
@@ -205,8 +207,7 @@ li:last-child {
 
 .tags {
   align-self: end;
-  height: 22.4px;
-  line-height: 22.4px;
+  height: calc(var(--base-font-size) * var(--line-height));
 }
 .tags::before {
   filter: invert(60%);
@@ -216,14 +217,14 @@ li:last-child {
   background-image: url('img/glyphicons/png/glyphicons-174-play.png');
   background-size: contain;
   background-repeat: no-repeat;
-  width: calc(var(--base-font-size));
-  height: calc(var(--base-font-size));
-  position: relative;
-  top: calc((var(--base-font-size) * var(--line-height) - var(--base-font-size)) / 2);
+  width: var(--tag-size-width);
+  height: var(--tag-size-height);
   margin-right: 4px;
+  position: relative;
+  top: 1px;
 }
 
-.grid .btn {
+.grid > .btn {
   background-position: center right;
   justify-self: flex-end;
   position: relative;
@@ -231,3 +232,12 @@ li:last-child {
   position: relative;
   top: calc(var(--base-font-size) * var(--line-height) / 2);
 }
+
+/*
+.line {
+  position: absolute;
+  border-top: 1px solid red;
+  width: 100%;
+  bottom: 26px;
+}
+*/
