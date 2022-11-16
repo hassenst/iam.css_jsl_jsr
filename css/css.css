@@ -106,6 +106,10 @@ header {
   background-image: url('img/glyphicons/png/glyphicons-157-show-thumbnails.png');
 }
 
+.list {
+  background-image: url('img/glyphicons/png/glyphicons-115-list.png');
+}
+
 .plus {
   background-image: url('img/glyphicons/png/glyphicons-433-plus.png');
 }
@@ -145,14 +149,16 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  border-top: var(--lightgray) var(--base-font-size) solid;
 }
 
-ul::before {
+/* ul::before {
   content: '';
+  width: 100%;
   display: block;
   height: var(--base-spacing);
   background: var(--lightgray);
-}
+} */
 
 li:not(:first-child) {
   border-top: 1px solid var(--gray);
@@ -230,7 +236,7 @@ li:last-child {
   position: relative;
   align-self: end;
   position: relative;
-  top: calc(var(--base-font-size) * var(--line-height) / 2);
+  bottom: calc(-1 * var(--base-font-size) * var(--line-height) / 2);
 }
 
 /*
@@ -241,3 +247,42 @@ li:last-child {
   bottom: 26px;
 }
 */
+
+/* tileView*/
+.tileview {
+  display: flex;
+  gap: calc(var(--base-spacing) / 2);
+  flex-wrap: wrap;
+  padding: calc(var(--base-spacing) / 2) 5%;
+}
+
+.tileview .grid > *:not(.thumbnail, .btn) {
+  display: none;
+}
+
+.tileview .grid,
+.tileview .thumbnail {
+  border: none;
+  width: calc((100vw - var(--base-spacing) - 10vw) / 3);
+  height: calc((100vw - var(--base-spacing) - 10vw) / 3);
+}
+
+.tileview .grid {
+  padding: 0;
+}
+
+.tileview .grid .btn {
+  position: absolute;
+  z-index: 1;
+  right: var(--base-spacing);
+  bottom: var(--base-spacing);
+}
+
+@media (min-width: 37.5em) {
+  .tileview .grid,
+  .tileview .thumbnail {
+    border: none;
+    width: calc((100vw - 1.5 * var(--base-spacing) - 10vw) / 4);
+    height: calc((100vw - 1.5 * var(--base-spacing) - 10vw) / 4);
+  }
+}
