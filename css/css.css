@@ -102,11 +102,11 @@ header {
   background-image: url('img/glyphicons/png/glyphicons-517-menu-hamburger.png');
 }
 
-.tile {
+.switch {
   background-image: url('img/glyphicons/png/glyphicons-157-show-thumbnails.png');
 }
 
-.list {
+.tileview .switch {
   background-image: url('img/glyphicons/png/glyphicons-115-list.png');
 }
 
@@ -249,7 +249,7 @@ li:last-child {
 */
 
 /* tileView*/
-.tileview {
+.tileview ul {
   display: flex;
   gap: calc(var(--base-spacing) / 2);
   flex-wrap: wrap;
@@ -276,6 +276,8 @@ li:last-child {
   z-index: 1;
   right: var(--base-spacing);
   bottom: var(--base-spacing);
+  filter: invert(90%);
+  -webkit-filter: invert(90%);
 }
 
 @media (min-width: 37.5em) {
@@ -285,4 +287,15 @@ li:last-child {
     width: calc((100vw - 1.5 * var(--base-spacing) - 10vw) / 4);
     height: calc((100vw - 1.5 * var(--base-spacing) - 10vw) / 4);
   }
+}
+
+/*Fade Animation*/
+.fadeout {
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.fadein {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
 }

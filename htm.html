@@ -16,19 +16,20 @@
     <script type="application/javascript" src="js/jsr.js"></script>
     <!-- add the "library" script wrapping XMLHttpRequest -->
     <script type="application/javascript" src="js/lib/xhr.js"></script>
+    <script type="application/javascript" src="js/app.js"></script>
   </head>
   <body>
     <!-- Header -->
     <header class="has-box-shadow has-padding">
       <button class="btn menu" aria-label="show menu"></button>
       <h1 class="heading">Medien</h1>
-      <button class="btn list" aria-label="show tile view"></button>
+      <button class="btn switch" aria-label="toggle views"></button>
       <button class="btn plus" aria-label="add item to playlist"></button>
     </header>
 
     <!-- Main -->
     <main>
-      <ul class="tileview">
+      <ul>
         <li class="grid">
           <img
             src="https://placekitten.com/200/150"
@@ -52,7 +53,7 @@
           />
           <p class="owner">Lorem ipsum</p>
           <time datetime="2022-10-15" class="added">15.10.2022</time>
-          <h2 class="title">M1</h2>
+          <h2 class="title">M2</h2>
           <div class="tags">0</div>
           <button class="btn options" aria-label="options"></button>
         </li>
@@ -80,7 +81,7 @@
           />
           <p class="owner">Lorem ipsum</p>
           <time datetime="2022-10-15" class="added">15.10.2022</time>
-          <h2 class="title">M1</h2>
+          <h2 class="title">M3</h2>
           <div class="tags">2</div>
           <button class="btn options" aria-label="options"></button>
         </li>
@@ -93,8 +94,8 @@
           />
           <p class="owner">Lorem ipsum</p>
           <time datetime="2022-10-15" class="added">15.10.2022</time>
-          <h2 class="title">M1</h2>
-          <div class="tags">2</div>
+          <h2 class="title">M4</h2>
+          <p class="tags">2</p>
           <button class="btn options" aria-label="options"></button>
         </li>
         <li class="grid">
