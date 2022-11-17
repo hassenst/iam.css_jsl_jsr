@@ -40,16 +40,14 @@ class ViewController {
 
   prepareListElementInteraction() {
     const list = this.root.querySelector('ul');
-    let message = '';
-
-    //Event Listener nicht auf die Lis setzen sondern auf ul
-    //muss noch implementiert werden mit closest()
 
     list.onclick = (event) => {
-      const el = event.target.closest('.grid');
-      const title = el.children[3].textContent;
-      const src = el.children[0].src;
-      message = title;
+      const listItem = event.target.closest('.grid');
+      const title = listItem.querySelector('.title').textContent;
+      const src = listItem.querySelector('.thumbnail').src;
+
+      let message = title;
+
       if (event.target.tagName === 'UL') return;
       if (event.target.tagName === 'BUTTON') {
         message += `\n${src}`;
