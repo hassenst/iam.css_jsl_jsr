@@ -2,13 +2,11 @@ class ViewController {
   constructor() {}
 
   onCreate() {
-    //alert('oncreate');
+    this.loadData();
     this.prepareViewSwitching();
     this.prepareListElementInteraction();
-    //this.prepareFading();
-    //this.prepareAddingNewElements();
-
-    //this.loadData();
+    this.prepareAddingNewElements();
+    this.refresh();
   }
 
   prepareViewSwitching() {
@@ -38,6 +36,9 @@ class ViewController {
     fadableElement.addEventListener('transitionend', onFadedOut);
   }
 
+  /**
+   * ListItems Interactions
+   */
   prepareListElementInteraction() {
     const list = this.root.querySelector('ul');
 
@@ -45,48 +46,85 @@ class ViewController {
       const listItem = event.target.closest('.grid');
       const title = listItem.querySelector('.title').textContent;
       const src = listItem.querySelector('.thumbnail').src;
-
-      let message = title;
-
+      //
       if (event.target.tagName === 'UL') return;
+      //Handle Options Button Click
       if (event.target.tagName === 'BUTTON') {
-        message += `\n${src}`;
+        //remove listItem on confirm
+        if (confirm(`Wollen Sie \n${title}\n${src}\nlöschen?`)) listItem.remove();
+        return;
       }
-
-      alert(message);
+      alert(title);
     };
   }
-  /*
+
   prepareAddingNewElements() {
-    const addButton = this.root.getElementsByTagName('button')[1];
-    this.listRoot = this.root.getElementsByTagName('ul')[0];
-    this.liTemplate = this.root.getElementsByTagName('template')[0];
+    const addButton = this.root.querySelector('.plus');
 
     addButton.onclick = (event) => {
       event.stopPropagation();
-      const [title, src] = ['lorem', 'https://via.placeholder.com/200x300'];
-      this.addNewElementToList({ title, src });
+      //Random Number
+      const rn = (max = 300, min = 100) =>
+        Math.floor(Math.random() * (max - min + 1) + min);
+
+      const [title, owner, added, src, numOfTags] = [
+        ['Lorem', 'Ipsum', 'Dolor'][rn(2, 0)],
+        'placekitten.com',
+        new Date().toLocaleDateString(),
+        `https://placekitten.com/${rn()}/${rn()}`,
+        rn(100, 0),
+      ];
+      this.addNewElementToList({ title, owner, added, src, numOfTags });
     };
   }
 
   addNewElementToList(obj) {
-    //viele createElement und appendChild anweisungen
-    //console.log(obj);
+    this.listRoot = this.root.getElementsByTagName('ul')[0];
+
+    this.liTemplate = this.root.getElementsByTagName('template')[0];
     const newLi = document.importNode(this.liTemplate.content, true);
+
+    const { title, owner, added, src, numOfTags } = obj;
+
+    newLi.querySelector('.title').textContent = title;
+    newLi.querySelector('.thumbnail').src = src;
+    newLi.querySelector('.owner').textContent = owner;
+    newLi.querySelector('.added').textContent = added;
+    //Correct Datetime Format Attribute
+    newLi
+      .querySelector('.added')
+      .setAttribute('datetime', added.split('.').reverse().join('-'));
+    newLi.querySelector('.tags').textContent = numOfTags;
 
     this.listRoot.appendChild(newLi);
   }
 
   loadData() {
-    //mit xhr Reequest oder fetch
-  } */
+    fetch('data/listItems.json')
+      .then((response) => response.json())
+      .then((data) => {
+        data.forEach((item) => {
+          this.addNewElementToList(item);
+        });
+      });
+  }
+
+  refresh() {
+    const refreshButton = this.root.querySelector('.refresh');
+    const container = this.root.getElementsByTagName('ul')[0];
+    this.liTemplate = this.root.getElementsByTagName('template')[0];
+
+    refreshButton.onclick = () => {
+      container.replaceChildren(this.liTemplate);
+      this.loadData();
+    };
+  }
 }
 
 window.onload = () => {
   const vcinstance = new ViewController();
 
   vcinstance.root = document.body;
-  console.log(vcinstance);
 
   vcinstance.onCreate();
 };
