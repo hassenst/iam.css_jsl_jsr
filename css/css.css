@@ -125,12 +125,6 @@ header {
 .options {
   background-image: url('img/glyphicons/png/glyphicons-518-option-vertical.png');
 }
-/*
-.helper,
-.helper * {
-  outline: 1px solid red;
-}
-*/
 
 footer {
   bottom: 0;
@@ -152,15 +146,8 @@ ul {
   border-top: var(--lightgray) var(--base-font-size) solid;
 }
 
-/* ul::before {
-  content: '';
-  width: 100%;
-  display: block;
-  height: var(--base-spacing);
-  background: var(--lightgray);
-} */
-
-li:not(:first-child) {
+/* template fix*/
+li:not(:nth-child(2)) {
   border-top: 1px solid var(--gray);
 }
 
@@ -253,7 +240,7 @@ li:last-child {
   display: flex;
   gap: calc(var(--base-spacing) / 2);
   flex-wrap: wrap;
-  padding: calc(var(--base-spacing) / 2) 5%;
+  padding: calc(var(--base-spacing) / 2);
 }
 
 .tileview .grid > *:not(.thumbnail, .btn) {
@@ -263,8 +250,8 @@ li:last-child {
 .tileview .grid,
 .tileview .thumbnail {
   border: none;
-  width: calc((100vw - var(--base-spacing) - 10vw) / 3);
-  height: calc((100vw - var(--base-spacing) - 10vw) / 3);
+  width: calc((100vw - 2 * var(--base-spacing)) / 3);
+  height: calc((100vw - 2 * var(--base-spacing)) / 3);
 }
 
 .tileview .grid {
@@ -284,8 +271,8 @@ li:last-child {
   .tileview .grid,
   .tileview .thumbnail {
     border: none;
-    width: calc((100vw - 1.5 * var(--base-spacing) - 10vw) / 4);
-    height: calc((100vw - 1.5 * var(--base-spacing) - 10vw) / 4);
+    width: calc((100vw - 2.5 * var(--base-spacing)) / 4);
+    height: calc((100vw - 2.5 * var(--base-spacing)) / 4);
   }
 }
 
